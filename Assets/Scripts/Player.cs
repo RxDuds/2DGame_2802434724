@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
+    public Image healthBar;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -94,6 +96,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log(health);
             health -= 25;
+            healthBar.fillAmount = health / 100f;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             StartCoroutine(BlinkRed());
 
@@ -113,6 +116,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 }
