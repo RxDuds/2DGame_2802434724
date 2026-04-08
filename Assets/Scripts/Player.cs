@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     public int health = 100;
     public int healthkit = 3;
+    private int healing = 50;
     public int coins = 0;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
@@ -13,6 +15,7 @@ public class Player : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     public Image healthBar;
+    public TextMeshProUGUI coinText;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -60,11 +63,19 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(healthkit > 0)
+            if(healthkit > 0 && (health + healing <= 100))
             {
-                health += 50;
+
+                health += healing;
                 healthkit -= 1;
+                healthBar.fillAmount = health / 100f;
+                Debug.Log("Health kit used! Current health: " + health);
             }
+        }
+
+        if(transform.position.y < -20)
+        {
+            Die();
         }
 
         SetAnimation(moveInput);
@@ -118,6 +129,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
     private IEnumerator BlinkRed()
     {
         spriteRenderer.color = Color.red;
@@ -128,5 +140,12 @@ public class Player : MonoBehaviour
     private void Die()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+    }
+   
+    public void pickupcoin(int coinValue)
+    {
+        coins += coinValue;
+        Debug.Log("Coins: " + coins);
+        coinText.text = coins.ToString();
     }
 }
