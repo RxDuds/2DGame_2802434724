@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health = 100;
+    public int healthkit = 3;
+    public int coins = 0;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
@@ -53,6 +55,15 @@ public class Player : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(healthkit > 0)
+            {
+                health += 50;
+                healthkit -= 1;
             }
         }
 
