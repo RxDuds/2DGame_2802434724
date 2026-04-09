@@ -8,4 +8,9 @@ public class GameManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(nextlevelname);
         Time.timeScale = 1f;
     }
+
+    public void Startlevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+    }
 }
