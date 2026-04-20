@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     public Image healthBar;
     public TextMeshProUGUI coinText;
+    public TextMeshProUGUI healthkitText;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        healthkitText.text = healthkit.ToString();
 
         extraJumps = extraJumpValue;
     }
@@ -77,6 +79,7 @@ public class Player : MonoBehaviour
 
                 health += healing;
                 healthkit -= 1;
+                healthkitText.text = healthkit.ToString();
                 healthBar.fillAmount = health / 100f;
                 Debug.Log("Health kit used! Current health: " + health);
             }
@@ -137,6 +140,14 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if(collision.gameObject.tag == "shop")
+    //     {
+            
+    //     }
+    // }
 
 
     private IEnumerator BlinkRed()
