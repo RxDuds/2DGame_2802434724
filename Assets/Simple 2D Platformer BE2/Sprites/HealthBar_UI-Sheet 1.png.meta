@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 0c39e18020dc8d44aa5051f9e5b9e3af
+guid: 83d51f3c6598f434e8ee5909ef125c88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7582586162858070751
-    second: HealthBar_UI-Sheet_0
+      213: 2974823014327525364
+    second: HealthBar_UI-Sheet 1_0
   - first:
-      213: -7772094983317808980
-    second: HealthBar_UI-Sheet_1
+      213: 2083817489427518798
+    second: HealthBar_UI-Sheet 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthBar_UI-Sheet_0
+      name: HealthBar_UI-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,36 +125,36 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 7}
+      border: {x: 5, y: 5, z: 5, w: 6}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12d6d042f0e35c690800000000000000
-      internalID: -7582586162858070751
+      spriteID: 4ff16ae25c1b84920800000000000000
+      internalID: 2974823014327525364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HealthBar_UI-Sheet_1
+      name: HealthBar_UI-Sheet 1_1
       rect:
         serializedVersion: 2
-        x: 3
+        x: 4
         y: 3
-        width: 26
+        width: 24
         height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 5, z: 3, w: 3}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca81fbe7ac8f32490800000000000000
-      internalID: -7772094983317808980
+      spriteID: e45d21257f43bec10800000000000000
+      internalID: 2083817489427518798
       vertices: []
       indices: 
       edges: []
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ce1730516f282e44cbb645832c81812d
+    spriteID: c7386ccc44993a347991203b3a0850bc
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HealthBar_UI-Sheet_0: -7582586162858070751
-      HealthBar_UI-Sheet_1: -7772094983317808980
+      HealthBar_UI-Sheet 1_0: 2974823014327525364
+      HealthBar_UI-Sheet 1_1: 2083817489427518798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

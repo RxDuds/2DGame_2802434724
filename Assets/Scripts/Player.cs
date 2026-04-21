@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
     public int extraJumpValue = 1;
     private int extraJumps;
+    public Transform shopgui;
 
 
     void Start()
@@ -83,6 +84,16 @@ public class Player : MonoBehaviour
                 healthBar.fillAmount = health / 100f;
                 Debug.Log("Health kit used! Current health: " + health);
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if(shopgui.gameObject.activeSelf)
+            {
+                shopgui.gameObject.SetActive(false);
+            }
+            else
+            shopgui.gameObject.SetActive(true);
         }
 
         if(transform.position.y < -20)
