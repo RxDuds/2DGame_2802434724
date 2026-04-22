@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Flag : MonoBehaviour
@@ -7,6 +8,8 @@ public class Flag : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.save();
             Time.timeScale = 0f;
             Goalpanel.SetActive(true);
 

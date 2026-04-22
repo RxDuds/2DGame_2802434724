@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +29,20 @@ public class Player : MonoBehaviour
     public int extraJumpValue = 1;
     private int extraJumps;
     public Transform shopgui;
+    public void load()
+    {
+        PlayerData data = SavingLoading.loadPlayer();
+
+        health = data.health;
+        healthkit = data.healthkits;
+        coins = data.coins;
+        extraJumpValue = data.extrajumps;
+
+        healthkitText.text = healthkit.ToString();
+        healthBar.fillAmount = health / 100f;
+        coinText.text = coins.ToString();
+
+    }
 
 
     void Start()
@@ -36,6 +51,9 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         healthkitText.text = healthkit.ToString();
+
+        Debug.Log("loaded");
+        load();
 
         extraJumps = extraJumpValue;
     }
@@ -152,13 +170,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if(collision.gameObject.tag == "shop")
-    //     {
-            
-    //     }
-    // }
+    public void save()
+    {
+        SavingLoading.savePlayer(this);
+    }
 
 
     private IEnumerator BlinkRed()
