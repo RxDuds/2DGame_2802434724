@@ -4,6 +4,12 @@ public class Buy : MonoBehaviour
 {
     public int price;
     public int amount;
+    public Transform shopgui;
+
+    public void back()
+    {
+        shopgui.gameObject.SetActive(false);
+    }
     public void purchase_healthkit()
     {         
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
