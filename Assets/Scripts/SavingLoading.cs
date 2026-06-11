@@ -1,32 +1,40 @@
 using UnityEngine;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Unity.VisualScripting;
 
 public static class SavingLoading
 {
     public static void savePlayer(Player player)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.data";
-        FileStream stream = new FileStream(path, FileMode.Create);
+        string path = Application.persistentDataPath + "player.save";
+        // BinaryFormatter formatter = new BinaryFormatter();
+        // FileStream stream = new FileStream(path, FileMode.Create);
         PlayerData data = new PlayerData(player);
 
-        formatter.Serialize(stream, data);
-        stream.Close();
+        // New Save function
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(path, json);
+
+
+        // formatter.Serialize(stream, data);
+        // stream.Close();
     }
 
     public static PlayerData loadPlayer()
     {
-        string path = Application.persistentDataPath + "/player.data";
+        string path = Application.persistentDataPath + "player.save";
         if (File.Exists(path))
         {
             
-            BinaryFormatter formatter = new BinaryFormatter();
+            // BinaryFormatter formatter = new BinaryFormatter();
             
-            FileStream stream = new FileStream(path, FileMode.Open);
+            // FileStream stream = new FileStream(path, FileMode.Open);
 
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            // PlayerData data = formatter.Deserialize(stream) as PlayerData;
+
+            //Newsave
+            string json = File.ReadAllText(path);
+            PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
             return data;
         }
