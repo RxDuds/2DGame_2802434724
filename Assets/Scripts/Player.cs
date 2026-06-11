@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int coins = 0;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+    public bool inshop = false;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
@@ -104,7 +105,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.F) & inshop)
         {
             if(shopgui.gameObject.activeSelf)
             {
