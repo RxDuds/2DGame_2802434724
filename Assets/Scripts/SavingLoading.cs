@@ -7,8 +7,6 @@ public static class SavingLoading
     public static void savePlayer(Player player)
     {
         string path = Application.persistentDataPath + "player.save";
-        // BinaryFormatter formatter = new BinaryFormatter();
-        // FileStream stream = new FileStream(path, FileMode.Create);
         PlayerData data = new PlayerData(player);
 
         // New Save function
@@ -16,8 +14,6 @@ public static class SavingLoading
         File.WriteAllText(path, json);
 
 
-        // formatter.Serialize(stream, data);
-        // stream.Close();
     }
 
     public static PlayerData loadPlayer()
@@ -25,12 +21,6 @@ public static class SavingLoading
         string path = Application.persistentDataPath + "player.save";
         if (File.Exists(path))
         {
-            
-            // BinaryFormatter formatter = new BinaryFormatter();
-            
-            // FileStream stream = new FileStream(path, FileMode.Open);
-
-            // PlayerData data = formatter.Deserialize(stream) as PlayerData;
 
             //Newsave
             string json = File.ReadAllText(path);
